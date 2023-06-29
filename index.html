@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/main.css">
@@ -42,11 +43,17 @@
 
         <div class="form__frame">
 
-          <iframe id="theFrame" src="agreement_demo.pdf" style="height:500px; width:100%;"></iframe>
+          <iframe id="pdfFrame" src="agreement_demo.pdf" style="height:500px; width:100%;"></iframe>
 <script>
-document.getElementById("theFrame").contentWindow.onload = function() {
-    this.document.getElementsByTagName("img")[0].style.width="100%";
-};
+$('#pdfFrame').hide();
+var pdfFrame = document.getElementById('pdfFrame');
+pdfFrame.contentWindow.location.replace(PDF_URL);
+$('#pdfFrame').on('load', function () {
+    $('#pdfFrame').show();
+    var documentWidth = $(document).width()
+    var scale = (documentWidth / width) * 0.95;
+    $('#pdfFrame').css("-webkit-transform", "scale(" + scale + ")");
+});
 </script>
         </div>
 
