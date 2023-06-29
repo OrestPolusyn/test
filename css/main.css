@@ -85,6 +85,13 @@ iframe {
   min-height: 400px !important;
 }
 
+.scroll-wrapper {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 400px;
+  height: 300px;
+}
+
 span {
   display: block;
 }
