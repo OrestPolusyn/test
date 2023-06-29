@@ -41,7 +41,13 @@
 
 
         <div class="form__frame">
-          <iframe src="https://orestpolusyn.github.io/test/agreement_demo.pdf" ></iframe>
+
+          <iframe id="theFrame" src="agreement_demo.pdf" style="height:500px; width:100%;"></iframe>
+<script>
+document.getElementById("theFrame").contentWindow.onload = function() {
+    this.document.getElementsByTagName("img")[0].style.width="100%";
+};
+</script>
         </div>
 
       </div>
